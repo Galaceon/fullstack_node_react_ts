@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Link, Form, useActionData } from "react-router-dom"
+import ErrorMessage from "../components/ErrorMessage"
 
 export async function action({request}) {
     const data = Object.fromEntries(await request.formData())
@@ -17,7 +18,7 @@ export async function action({request}) {
 
 export default function NewProduct() {
 
-    const error = useActionData()
+    const error = useActionData() as string
 
     console.log(error)
 
@@ -32,6 +33,8 @@ export default function NewProduct() {
                     Volver a Productos
                 </Link>
             </div>
+
+            {error && <ErrorMessage>{error}</ErrorMessage>}
 
             <Form
                 className="mt-10"
