@@ -12,7 +12,7 @@ export async function addProduct(data : ProductData) {
             price: +data.price
         })
         if(result.success) {
-
+            
         } else {
             throw new Error('Datos no validos')
         }
