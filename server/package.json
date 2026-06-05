@@ -12,6 +12,7 @@
   "author": "Anto",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/jest": "^30.0.0",
     "@types/supertest": "^7.2.0",
@@ -27,6 +28,7 @@
   },
   "dependencies": {
     "colors": "^1.4.0",
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "express-validator": "^7.3.2",
