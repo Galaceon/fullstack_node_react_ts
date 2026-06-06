@@ -1,4 +1,4 @@
-import { DraftProductSchema, ProductSchema, ProductsSchema } from "../types"
+import { DraftProductSchema, ProductsSchema } from "../types"
 import { safeParse } from "valibot"
 import axios from "axios"
 
@@ -33,7 +33,12 @@ export async function getProducts() {
         const {data} = await axios(url)
         const result = safeParse(ProductsSchema, data.data)
 
-        console.log(result)
+        if(result.success) {
+            return result.output
+        } else {
+            throw new Error('Hubo un error')
+        }
+
     } catch (error) {
         console.log(error)
     }
