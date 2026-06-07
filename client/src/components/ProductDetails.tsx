@@ -5,7 +5,7 @@ type ProductDetailsProps = {
     product: Product
 }
 
-export default function ProductDetails({product} : Product) {
+export default function ProductDetails({product} : ProductDetailsProps) {
 
     const isAvailable = product.availability
 
@@ -21,7 +21,9 @@ export default function ProductDetails({product} : Product) {
                 {isAvailable ? 'Disponible' : 'No disponible'}
             </td>
             <td className="p-3 text-lg text-gray-800 ">
-                
+                <div className="flex gap-2 items-center">
+                    <button>Editar</button>
+                </div>
             </td>
         </tr> 
     )
