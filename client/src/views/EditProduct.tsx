@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Link, Form, useActionData, type ActionFunctionArgs, redirect, type LoaderFunctionArgs, useLoaderData } from "react-router-dom"
 import ErrorMessage from "../components/ErrorMessage"
-import { addProduct, getProductsById } from "../services/ProductService"
+import { getProductsById, updateProduct } from "../services/ProductService"
 import type { Product } from "../types"
 
 export async function loader({params} : LoaderFunctionArgs) {
@@ -19,7 +19,7 @@ export async function loader({params} : LoaderFunctionArgs) {
     return {}
 }
 
-export async function action({request} : ActionFunctionArgs) {
+export async function action({request, params} : ActionFunctionArgs) {
     const data = Object.fromEntries(await request.formData())
 
     let error = ''
@@ -29,8 +29,9 @@ export async function action({request} : ActionFunctionArgs) {
     if(error.length) {
         return error
     }
-
-    await addProduct(data)
+    if(params.id !== undefined) {
+        await updateProduct(data, +params.id)
+    }
 
     return redirect('/')
 }
