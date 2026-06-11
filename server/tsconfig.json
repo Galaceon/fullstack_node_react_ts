@@ -4,8 +4,8 @@
         "rootDir": "./src",
         "lib": ["esnext"],
         "target": "esnext",
-    "module": "commonjs",
-    "moduleResolution": "node",
+        "module": "nodenext",
+        "moduleResolution": "NodeNext",
         "strict": false,
         "sourceMap": true,
         "esModuleInterop": true,
@@ -14,5 +14,6 @@
         "emitDecoratorMetadata": true,
         "types": ["jest", "node"]
     },
-    "include": ["src/**/*.ts"]
+    "include": ["src/**/*.ts"],
+    "exclude": ["src/**/*.test.ts"]
 }
